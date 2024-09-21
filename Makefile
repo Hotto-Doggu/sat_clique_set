@@ -1,27 +1,25 @@
-# Definir o compilador e as flags
 CXX = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -O2 -std=c++17
 
-# Nomes dos executáveis
-EXEC_SAT = satisfability
-EXEC_CLIQUE = clique
-EXEC_INDEPENDENT = max_set
+SRC_DIR = src
+BUILD_DIR = build
 
-# Compilar todos os programas
-all: $(EXEC_SAT) $(EXEC_CLIQUE) $(EXEC_INDEPENDENT)
+all: $(BUILD_DIR)/clique $(BUILD_DIR)/max_set $(BUILD_DIR)/sat $(BUILD_DIR)/cli
 
-# Regras de compilação para sat.cpp
-$(EXEC_SAT): sat.cpp
-	$(CXX) $(CXXFLAGS) -o $(EXEC_SAT) sat.cpp
+$(BUILD_DIR)/clique: $(SRC_DIR)/clique.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# Regras de compilação para clique.cpp
-$(EXEC_CLIQUE): clique.cpp
-	$(CXX) $(CXXFLAGS) -o $(EXEC_CLIQUE) clique.cpp
+$(BUILD_DIR)/max_set: $(SRC_DIR)/max_set.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# Regras de compilação para max_set.cpp
-$(EXEC_INDEPENDENT): max_set.cpp
-	$(CXX) $(CXXFLAGS) -o $(EXEC_INDEPENDENT) max_set.cpp
+$(BUILD_DIR)/sat: $(SRC_DIR)/sat.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# Limpeza dos arquivos compilados
+$(BUILD_DIR)/cli: $(SRC_DIR)/main.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+run: $(BUILD_DIR)/cli
+	./build/cli
+
 clean:
-	rm -f $(EXEC_SAT) $(EXEC_CLIQUE) $(EXEC_INDEPENDENT)
+	rm -f $(BUILD_DIR)/*
