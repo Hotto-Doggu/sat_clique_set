@@ -8,7 +8,7 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-vector<int> assignment; // Armazenará a melhor atribuição encontrada
+vector<int> assignment;
 bool satisfiable = false;
 
 // Função para verificar se a fórmula é satisfeita
@@ -42,14 +42,12 @@ void solveSAT(vector<vector<int>> &clauses, int index, int num_variables) {
     return;
   }
 
-  // Atribuir 0 (falso) à variável
   assignment[index] = 0;
   solveSAT(clauses, index + 1, num_variables);
 
   if (satisfiable)
-    return; // Parar a busca se encontrar uma solução
+    return;
 
-  // Atribuir 1 (verdadeiro) à variável
   assignment[index] = 1;
   solveSAT(clauses, index + 1, num_variables);
 }
