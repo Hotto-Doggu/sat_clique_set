@@ -22,7 +22,6 @@ def read_data(directory, data_type='clique_max_set'):
             with open(file_path, 'r') as file:
                 content = file.read()
 
-                # Usar expressões regulares para extrair os valores desejados
                 if data_type == 'clique_max_set':
                     vertices_match = re.search(r'Número de vértices:\s+(\d+)', content)
                     execution_time_match = re.search(r'Tempo de execução:\s+([\d\.e-]+)\s+segundos', content)
@@ -32,16 +31,7 @@ def read_data(directory, data_type='clique_max_set'):
                         execution_time = float(execution_time_match.group(1))
                         data.append((num_vertices, execution_time))
 
-                elif data_type == 'sat_fixed_variables':  # Aqui, analisar "Número de Cláusulas"
-                    clauses_match = re.search(r'Número de cláusulas:\s+(\d+)', content)
-                    execution_time_match = re.search(r'Tempo de execução:\s+([\d\.e-]+)\s+segundos', content)
-
-                    if clauses_match and execution_time_match:
-                        num_clauses = int(clauses_match.group(1))
-                        execution_time = float(execution_time_match.group(1))
-                        data.append((num_clauses, execution_time))
-
-                elif data_type == 'sat_fixed_clauses':  # Aqui, analisar "Número de Variáveis"
+                elif data_type == 'sat':
                     variables_match = re.search(r'Número de variáveis:\s+(\d+)', content)
                     execution_time_match = re.search(r'Tempo de execução:\s+([\d\.e-]+)\s+segundos', content)
 
@@ -81,17 +71,14 @@ def generate_and_save_plot(data, title, filename, x_label):
 # Caminhos para os diretórios de saída
 clique_directory = 'outputs/clique'
 max_set_directory = 'outputs/max_set'
-sat_fixed_clauses_directory = 'outputs/sat_fixed_clauses'
-sat_fixed_variables_directory = 'outputs/sat_fixed_variables'
+sat_directory = 'outputs/sat'
 
 # Ler os dados dos arquivos de saída
 clique_data = read_data(clique_directory, 'clique_max_set')
 max_set_data = read_data(max_set_directory, 'clique_max_set')
-sat_fixed_variables_data = read_data(sat_fixed_variables_directory, 'sat_fixed_variables')
-sat_fixed_clauses_data = read_data(sat_fixed_clauses_directory, 'sat_fixed_clauses')
+sat_data = read_data(sat_directory, 'sat')
 
 # Gerar e salvar os gráficos
 generate_and_save_plot(clique_data, 'Número de Vértices vs Tempo de Execução (Clique)', 'clique_analysis.png', 'Número de Vértices')
 generate_and_save_plot(max_set_data, 'Número de Vértices vs Tempo de Execução (Max Set)', 'max_set_analysis.png', 'Número de Vértices')
-generate_and_save_plot(sat_fixed_variables_data, 'Número de Cláusulas vs Tempo de Execução (SAT - Variáveis Fixas)', 'sat_fixed_variables_analysis.png', 'Número de Cláusulas')
-generate_and_save_plot(sat_fixed_clauses_data, 'Número de Variáveis vs Tempo de Execução (SAT - Cláusulas Fixas)', 'sat_fixed_clauses_analysis.png', 'Número de Variáveis')
+generate_and_save_plot(sat_data, 'Número de Variáveis vs Tempo de Execução (SAT - Cláusulas Fixas)', 'sat.png', 'Número de Variáveis')

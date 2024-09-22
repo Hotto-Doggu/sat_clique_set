@@ -24,24 +24,6 @@ int main() {
   }
 
   std::string algoritmo = algoritmos[escolha_algo - 1];
-
-  if (algoritmo == "sat") {
-    std::cout << "\nEscolha o tipo de entrada:\n";
-    std::cout << "1. sat_fixed_variables\n";
-    std::cout << "2. sat_fixed_clauses\n";
-    int tipo;
-    std::cin >> tipo;
-
-    if (tipo == 1) {
-      algoritmo = "sat_fixed_variables";
-    } else if (tipo == 2) {
-      algoritmo = "sat_fixed_clauses";
-    } else {
-      std::cerr << "\nSeleção inválida.\n" << std::endl;
-      return 1;
-    }
-  }
-
   std::string dir_path = "inputs/" + algoritmo;
 
   if (!fs::exists(dir_path) || !fs::is_directory(dir_path)) {
