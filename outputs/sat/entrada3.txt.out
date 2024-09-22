@@ -1,5 +1,4 @@
 Arquivo de entrada: inputs/sat/entrada3.txt
-Número de variáveis: 5
-Satisfatibilidade: Satisfiável
-Tempo de execução: 7.83e-07 segundos
-Atribuição satisfatória: x1=0 x2=0 x3=0 x4=0 x5=0 
+Número de variáveis: 14
+Satisfatibilidade: Insatisfiável
+Tempo de execução: 0.000412095 segundos

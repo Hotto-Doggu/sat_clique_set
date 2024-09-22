@@ -1,4 +1,4 @@
 Arquivo de entrada: inputs/sat/entrada8.txt
-Número de variáveis: 10
+Número de variáveis: 24
 Satisfatibilidade: Insatisfiável
-Tempo de execução: 9.904e-06 segundos
+Tempo de execução: 0.47377 segundos

@@ -29,6 +29,11 @@ sat_clique_set/
 │   ├── clique/              # Resultados gerados pelas execuções do algoritmo de Clique
 │   ├── max_set/             # Resultados gerados pelas execuções do algoritmo de Conjunto Independente Máximo
 │   └── sat/                 # Resultados gerados pelas execuções do algoritmo de SAT
+├── data/                    # Diretório contendo os gráficos gerados pela análise
+│   ├── clique_analysis.png  # Gráfico de análise do Clique
+│   ├── max_set_analysis.png # Gráfico de análise do Conjunto Independente Máximo
+│   └── sat.png              # Gráfico de análise do SAT
+├── analysis.py              # Script Python para gerar os gráficos de análise
 ├── build/                   # Diretório onde os executáveis são gerados
 ├── Makefile                 # Arquivo Makefile para compilar o projeto
 └── README.md                # Este arquivo de documentação
@@ -69,6 +74,18 @@ Isso criará um arquivo `example.txt` no diretório `generators/generated_inputs
 Durante a execução, o algoritmo de SAT salva os resultados (incluindo o tempo de execução, número de variáveis, número de cláusulas, e as atribuições de variáveis) em arquivos no diretório `outputs/sat`.
 
 Por exemplo, se o arquivo de entrada for `entrada1.txt`, o resultado será salvo em `outputs/sat/entrada1.txt.out`.
+
+## Gerando Gráficos com o `analysis.py`
+
+Este projeto inclui um script Python chamado `analysis.py` que gera gráficos de desempenho dos três algoritmos baseados nos resultados das execuções. Os gráficos serão salvos no diretório `data`.
+
+### Como executar o script de análise
+
+Certifique-se de que o ambiente Python esteja configurado corretamente, incluindo a instalação de bibliotecas como `matplotlib` e `pandas`. Para gerar os gráficos, execute:
+
+```bash
+python analysis.py
+```
 
 ## Limpando Arquivos Compilados
 
