@@ -1,0 +1,12 @@
+Arquivo de entrada: inputs/sat/entrada3.txt
+Número de variáveis: 7
+Número de cláusulas: 5
+Tempo de execução: 1.723e-06 segundos
+Atribuição satisfatória encontrada:
+x1 = True
+x2 = False
+x3 = False
+x4 = False
+x5 = False
+x6 = False
+x7 = False
