@@ -24,6 +24,24 @@ int main() {
   }
 
   std::string algoritmo = algoritmos[escolha_algo - 1];
+
+  if (algoritmo == "sat") {
+    std::cout << "\nEscolha o tipo de entrada:\n";
+    std::cout << "1. sat_fixed_variables\n";
+    std::cout << "2. sat_fixed_clauses\n";
+    int tipo;
+    std::cin >> tipo;
+
+    if (tipo == 1) {
+      algoritmo = "sat_fixed_variables";
+    } else if (tipo == 2) {
+      algoritmo = "sat_fixed_clauses";
+    } else {
+      std::cerr << "\nSeleção inválida.\n" << std::endl;
+      return 1;
+    }
+  }
+
   std::string dir_path = "inputs/" + algoritmo;
 
   if (!fs::exists(dir_path) || !fs::is_directory(dir_path)) {
@@ -54,6 +72,8 @@ int main() {
   int escolha_exec;
   std::cin >> escolha_exec;
 
+  std::string output_dir = "outputs/" + algoritmo;
+
   if (escolha_exec == 1) {
     for (size_t i = 0; i < entradas.size(); ++i) {
       std::cout << i + 1 << ". " << entradas[i] << std::endl;
@@ -71,7 +91,7 @@ int main() {
 
     std::string entrada = entradas[escolha_entrada - 1];
     std::string comando =
-        "./build/" + algoritmo + " inputs/" + algoritmo + "/" + entrada;
+        "./build/sat inputs/" + algoritmo + "/" + entrada + " " + output_dir;
 
     std::cout << "\nExecutando: " << comando << "\n" << std::endl;
     int result = system(comando.c_str());
@@ -80,7 +100,7 @@ int main() {
   } else if (escolha_exec == 2) {
     for (const auto &entrada : entradas) {
       std::string comando =
-          "./build/" + algoritmo + " inputs/" + algoritmo + "/" + entrada;
+          "./build/sat inputs/" + algoritmo + "/" + entrada + " " + output_dir;
       std::cout << "\nExecutando: " << comando << "\n";
       int result = system(comando.c_str());
       if (result != 0) {

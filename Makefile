@@ -35,4 +35,4 @@ run: $(BUILD_DIR)/cli
 	./build/cli
 
 clean:
-	rm -rf $(BUILD_DIR)/* $(GEN_DIR)/sat_gen $(GEN_DIR)/clique_gen
+	rm -rf $(BUILD_DIR)/* $(GEN_DIR)/sat_gen $(GEN_DIR)/graph_gen

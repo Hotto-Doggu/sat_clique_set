@@ -1,7 +1,7 @@
-Arquivo de entrada: inputs/sat/entrada7.txt
+Arquivo de entrada: inputs/sat_fixed_variables/entrada8.txt
 Número de variáveis: 30
-Número de cláusulas: 500
-Tempo de execução: 8.628e-06 segundos
+Número de cláusulas: 700
+Tempo de execução: 1.3029e-05 segundos
 Atribuição satisfatória encontrada:
 x1 = False
 x2 = False

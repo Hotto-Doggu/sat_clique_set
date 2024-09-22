@@ -16,18 +16,16 @@ bool is_satisfied(const vector<int> &assignment,
     bool clause_satisfied = false;
     for (int literal : clause) {
       int var_index = abs(literal) - 1;
-      if ((literal > 0 &&
-           assignment[var_index] == 1) || // Literal positivo e variável é True
-          (literal < 0 &&
-           assignment[var_index] == 0)) { // Literal negativo e variável é False
+      if ((literal > 0 && assignment[var_index] == 1) ||
+          (literal < 0 && assignment[var_index] == 0)) {
         clause_satisfied = true;
         break;
       }
     }
     if (!clause_satisfied)
-      return false; // Se uma cláusula não é satisfeita, retorna false
+      return false;
   }
-  return true; // Todas as cláusulas foram satisfeitas
+  return true;
 }
 
 // Função de backtracking para satisfabilidade
@@ -82,8 +80,7 @@ bool read_input(const string &filename, int &num_vars,
 }
 
 // Função para executar o SAT e salvar o benchmark
-void run_benchmark(const string &input_filename,
-                   const string &output_filename) {
+void run_benchmark(const string &input_filename, const string &output_dir) {
   int num_vars;
   vector<vector<int>> clauses;
 
@@ -99,8 +96,9 @@ void run_benchmark(const string &input_filename,
   auto end_time = chrono::high_resolution_clock::now();
   chrono::duration<double> exec_time = end_time - start_time;
 
-  fs::create_directories(
-      "outputs/sat"); // Criar diretório de saída se não existir
+  fs::create_directories(output_dir);
+  string output_filename =
+      output_dir + "/" + fs::path(input_filename).filename().string() + ".out";
   ofstream outfile(output_filename);
 
   if (outfile.is_open()) {
@@ -127,16 +125,17 @@ void run_benchmark(const string &input_filename,
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 2) {
-    cerr << "\nUso: " << argv[0] << " <arquivo de entrada>\n" << endl;
+  if (argc < 3) {
+    cerr << "\nUso: " << argv[0]
+         << " <arquivo de entrada> <diretório de saída>\n"
+         << endl;
     return 1;
   }
 
   string input_filename = argv[1];
-  string output_filename =
-      "outputs/sat/" + fs::path(input_filename).filename().string() + ".out";
+  string output_dir = argv[2];
 
-  run_benchmark(input_filename, output_filename);
+  run_benchmark(input_filename, output_dir);
 
   return 0;
 }
