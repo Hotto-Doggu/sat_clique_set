@@ -1,2 +1,4 @@
 /build/
 /generators/generated_inputs/
+/generators/sat_gen
+/generators/clique_gen

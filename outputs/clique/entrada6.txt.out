@@ -1,0 +1,5 @@
+Arquivo de entrada: inputs/clique/entrada6.txt
+Número de vértices: 35
+Tamanho do clique máximo: 8
+Tempo de execução: 0.000116343 segundos
+Vértices do clique máximo: 1 4 11 14 24 28 33 35 
