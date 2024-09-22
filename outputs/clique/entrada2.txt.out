@@ -1,5 +1,5 @@
 Arquivo de entrada: inputs/clique/entrada2.txt
-Número de vértices: 15
-Tamanho do clique máximo: 4
-Tempo de execução: 5.32e-06 segundos
-Vértices do clique máximo: 1 9 10 14 
+Número de vértices: 80
+Tamanho do clique máximo: 8
+Tempo de execução: 0.00168467 segundos
+Vértices do clique máximo: 2 17 38 39 40 47 61 69 
