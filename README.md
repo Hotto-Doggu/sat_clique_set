@@ -16,12 +16,10 @@ sat_clique_set/
 │   ├── sat.cpp              # Implementação do algoritmo Satisfatibilidade
 │   └── main.cpp             # Código do CLI para selecionar o algoritmo e o arquivo de entrada
 ├── generators/
-│   ├── clique_gen.cpp       # Código do gerador de instâncias de Clique
-│   ├── max_set_gen.cpp      # Código do gerador de instâncias do Conjunto Independente Máximo
+│   ├── graph_gen.cpp        # Código do gerador de instâncias para problemas de grafos
 │   ├── sat_gen.cpp          # Código do gerador de instâncias de SAT
 │   └── generated_inputs/
-│       ├── clique/          # Instâncias geradas pelo algoritmo de geração de Clique
-│       ├── max_set/         # Instâncias geradas pelo algoritmo de geração de Conjunto Independente Máximo
+│       ├── graph/           # Instâncias geradas pelo algoritmo de geração de grafos
 │       └── sat/             # Instâncias geradas pelo algoritmo de geração de SAT
 ├── inputs/
 │   ├── clique/              # Arquivos de entrada para o Clique

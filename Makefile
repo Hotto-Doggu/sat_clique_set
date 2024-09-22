@@ -5,7 +5,7 @@ SRC_DIR = src
 BUILD_DIR = build
 GEN_DIR = generators
 
-all: | $(BUILD_DIR) $(GEN_DIR) $(BUILD_DIR)/clique $(BUILD_DIR)/max_set $(BUILD_DIR)/sat $(BUILD_DIR)/cli $(GEN_DIR)/sat_gen $(GEN_DIR)/clique_gen
+all: | $(BUILD_DIR) $(GEN_DIR) $(BUILD_DIR)/clique $(BUILD_DIR)/max_set $(BUILD_DIR)/sat $(BUILD_DIR)/cli $(GEN_DIR)/sat_gen $(GEN_DIR)/graph_gen
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -28,7 +28,7 @@ $(BUILD_DIR)/cli: $(SRC_DIR)/main.cpp
 $(GEN_DIR)/sat_gen: generators/sat_gen.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-$(GEN_DIR)/clique_gen: generators/clique_gen.cpp
+$(GEN_DIR)/graph_gen: generators/graph_gen.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 run: $(BUILD_DIR)/cli

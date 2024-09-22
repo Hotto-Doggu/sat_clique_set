@@ -1,0 +1,5 @@
+Arquivo de entrada: inputs/max_set/entrada6.txt
+Número de vértices: 35
+Tamanho do conjunto independente máximo: 6
+Tempo de execução: 6.8312e-05 segundos
+Vértices do conjunto independente máximo: 2 5 10 14 23 25 
