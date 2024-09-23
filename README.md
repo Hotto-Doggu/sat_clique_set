@@ -3,7 +3,7 @@
 Este projeto é um trabalho prático para a disciplina de Projeto e Análise de Algoritmos da Universidade Federal de Ouro Preto e implementa três problemas clássicos em C++:
 
 1. **Satisfatibilidade Booleana (SAT)**, utilizando backtracking;
-2. **Clique**, por meio de branch & bound;
+2. **Clique Máximo**, por meio de branch & bound;
 3. **Conjunto Independente Máximo**, obtido por redução a partir do Clique em tempo polinomial.
 
 ## Estrutura do Projeto
