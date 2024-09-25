@@ -15,21 +15,29 @@ bool satisfiable = false;
 bool isSatisfied(const vector<vector<int>> &clauses) {
   for (const auto &clause : clauses) {
     bool clauseSatisfied = false;
-    for (int literal : clause) {
-      int variable = abs(literal) - 1;
-      bool value = assignment[variable] == 1;
-      if (literal < 0) {
-        value = !value;
-      }
-      if (value) {
-        clauseSatisfied = true;
-        break;
+
+    for (size_t i = 0; i < clause.size(); ++i) {
+      int literal = clause[i];
+
+      if (literal != -1) {
+        bool value = assignment[i] == 1;
+
+        if (literal == 0) {
+          value = !value;
+        }
+
+        if (value) {
+          clauseSatisfied = true;
+          break;
+        }
       }
     }
+
     if (!clauseSatisfied) {
       return false;
     }
   }
+
   return true;
 }
 
@@ -54,7 +62,7 @@ void solveSAT(vector<vector<int>> &clauses, int index, int num_variables) {
 
 // Função principal para resolver o problema SAT
 void solveSATProblem(vector<vector<int>> &clauses, int num_variables) {
-  assignment.resize(num_variables, -1);
+  assignment.resize(num_variables, 0);
   solveSAT(clauses, 0, num_variables);
 }
 

@@ -28,6 +28,10 @@ vector<vector<int>> complement_graph(const vector<vector<int>> &graph,
 // Reutilizando a função de branch and bound
 void branch_and_bound(const vector<vector<int>> &graph, vector<int> &clique,
                       vector<int> &candidates) {
+  if (clique.size() + candidates.size() <= max_size) {
+    return;
+  }
+
   if (clique.size() > max_size) {
     max_size = clique.size();
     best_clique = clique;

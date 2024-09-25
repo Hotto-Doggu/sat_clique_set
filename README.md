@@ -11,7 +11,7 @@ Este projeto é um trabalho prático para a disciplina de Projeto e Análise de 
 ```bash
 sat_clique_set/
 ├── src/
-│   ├── clique.cpp           # Implementação do algoritmo Clique
+│   ├── clique.cpp           # Implementação do algoritmo Clique Máximo
 │   ├── max_set.cpp          # Implementação do algoritmo Conjunto Independente Máximo
 │   ├── sat.cpp              # Implementação do algoritmo Satisfatibilidade
 │   └── main.cpp             # Código do CLI para selecionar o algoritmo e o arquivo de entrada
@@ -22,15 +22,15 @@ sat_clique_set/
 │       ├── graph/           # Instâncias geradas pelo algoritmo de geração de grafos
 │       └── sat/             # Instâncias geradas pelo algoritmo de geração de SAT
 ├── inputs/
-│   ├── clique/              # Arquivos de entrada para o Clique
+│   ├── clique/              # Arquivos de entrada para o Clique Máximo
 │   ├── max_set/             # Arquivos de entrada para o Conjunto Independente Máximo
 │   └── sat/                 # Arquivos de entrada para o Satisfatibilidade
 ├── outputs/
-│   ├── clique/              # Resultados gerados pelas execuções do algoritmo de Clique
+│   ├── clique/              # Resultados gerados pelas execuções do algoritmo de Clique Máximo
 │   ├── max_set/             # Resultados gerados pelas execuções do algoritmo de Conjunto Independente Máximo
 │   └── sat/                 # Resultados gerados pelas execuções do algoritmo de SAT
 ├── data/                    # Diretório contendo os gráficos gerados pela análise
-│   ├── clique_analysis.png  # Gráfico de análise do Clique
+│   ├── clique_analysis.png  # Gráfico de análise do Clique Máximo
 │   ├── max_set_analysis.png # Gráfico de análise do Conjunto Independente Máximo
 │   └── sat.png              # Gráfico de análise do SAT
 ├── analysis.py              # Script Python para gerar os gráficos de análise

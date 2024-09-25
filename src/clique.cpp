@@ -11,21 +11,13 @@ namespace fs = std::filesystem;
 vector<int> best_clique;
 size_t max_size = 0;
 
-// Verifica se o subconjunto atual de vértices forma um clique
-bool is_clique(const vector<vector<int>> &graph, const vector<int> &clique) {
-  for (size_t i = 0; i < clique.size(); ++i) {
-    for (size_t j = i + 1; j < clique.size(); ++j) {
-      if (graph[clique[i]][clique[j]] == 0) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
 // Função de branch and bound para encontrar o clique máximo
 void branch_and_bound(const vector<vector<int>> &graph, vector<int> &clique,
                       vector<int> &candidates) {
+  if (clique.size() + candidates.size() <= max_size) {
+    return;
+  }
+
   if (clique.size() > max_size) {
     max_size = clique.size();
     best_clique = clique;

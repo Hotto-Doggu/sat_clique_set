@@ -81,8 +81,8 @@ int main() {
 
   } else if (escolha_exec == 2) {
     for (const auto &entrada : entradas) {
-      std::string comando =
-          "./build/sat inputs/" + algoritmo + "/" + entrada + " " + output_dir;
+      std::string comando = "./build/" + algoritmo + " inputs/" + algoritmo +
+                            "/" + entrada + " " + output_dir;
       std::cout << "\nExecutando: " << comando << "\n";
       int result = system(comando.c_str());
       if (result != 0) {
